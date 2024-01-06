@@ -113,6 +113,21 @@ public:
     }
 
 };
+ int reverse(int x) {
+        int t =0;
+
+        while(x != 0)
+        {
+            int digit = x % 10;
+            if((t > INT_MAX/10) || (t < INT_MIN/10)){
+                return 0;
+            }
+            t = t * 10 + digit;
+            x = x / 10;
+
+        }
+        return t;
+    }
 int main() {
     std::cout << "Hello, World!" << std::endl;
    /// fucntion();
