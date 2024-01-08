@@ -128,6 +128,45 @@ public:
         }
         return t;
     }
+
+class Solution {
+public:
+    double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
+        std::vector <int>merged;
+        int i = 0, j =0;
+        while (i < nums1.size() && j < nums2.size()) {
+            if (nums1[i] <= nums2[j]) {
+                merged.push_back(nums1[i]);
+                i++;
+            } else {
+                merged.push_back(nums2[j]);
+                j++;
+            }
+        }
+
+        // If there are remaining elements in nums1, add them to the merged array
+        while (i < nums1.size()) {
+            merged.push_back(nums1[i]);
+            i++;
+        }
+
+        // If there are remaining elements in nums2, add them to the merged array
+        while (j < nums2.size()) {
+            merged.push_back(nums2[j]);
+            j++;
+        }
+        
+         int n = merged.size();
+        if (n% 2 == 0) {
+            // If the size is even, return the average of the middle elements
+            return (merged[n / 2 - 1] + merged[n / 2]) / 2.0;
+        } else {
+            // If the size is odd, return the middle element
+            return merged[n / 2];
+        }
+
+    }
+};
 int main() {
     std::cout << "Hello, World!" << std::endl;
    /// fucntion();
