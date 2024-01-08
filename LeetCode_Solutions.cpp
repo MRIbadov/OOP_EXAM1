@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-// LeetCOde Solutions
+// LeetCOde Solutions 
 void fucntion()
 {
     int a;
